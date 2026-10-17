@@ -21,6 +21,45 @@ const Hero = () => {
         aria-hidden="true"
         className="absolute inset-0 z-0 h-full w-full object-cover object-center"
       />
+
+      //video background
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+      >
+        <source src="src\assets\ram animated video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>  
+
+      play pause and sound control for video background
+      <div className="absolute bottom-4 right-4 z-50 flex gap-2">
+        <button
+          onClick={() => {
+            const video = document.querySelector('video');
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          }}
+          className="px-3 py-1 bg-black/50 text-white rounded hover:bg-black/70 transition"
+        >
+          Play/Pause
+        </button>
+        <button
+          onClick={() => {
+            const video = document.querySelector('video');
+            video.muted = !video.muted;
+          }}
+          className="px-3 py-1 bg-black/50 text-white rounded hover:bg-black/70 transition"
+        >
+          Mute/Unmute
+        </button>
+      </div>
+
       <div
         aria-hidden="true"
         className="absolute inset-0 z-[1] bg-gradient-to-r from-black/40 via-black/10 to-transparent"
